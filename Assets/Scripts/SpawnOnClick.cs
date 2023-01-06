@@ -17,15 +17,21 @@ public class SpawnOnClick : MonoBehaviour
     }
     void Update()
     {
-        if (Mouse.current.leftButton.wasPressedThisFrame) // returns true when the mouse left button is pressed
+        if (Mouse.current.leftButton.wasPressedThisFrame) 
         {
+            Vector3 mousePos = Mouse.current.position.ReadValue();
+            mousePos.z = _spawningDistance;
+            Vector3 worldpos = Camera.main.ScreenToWorldPoint(mousePos);
             if (_objects.Count < _maxSpawnedObjects)
             {
-                Vector3 mousePos = Mouse.current.position.ReadValue();
-                mousePos.z = _spawningDistance;
-                Vector3 Worldpos = Camera.main.ScreenToWorldPoint(mousePos);
-                GameObject spawned = Instantiate(_objectToSpawn, Worldpos, Quaternion.identity);
+                GameObject spawned = Instantiate(_objectToSpawn, worldpos, Quaternion.identity);
                 _objects.Add(spawned);
+            }
+            else
+            {
+                _objects[0].transform.position = worldpos;
+                _objects.Add(_objects[0]);
+                _objects.RemoveAt(0);
             }
         }
     }
