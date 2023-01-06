@@ -1,0 +1,34 @@
+{
+    "name": "Spawner",
+    "maps": [
+        {
+            "name": "Spawner",
+            "id": "12e9a07d-1c89-445e-907c-3e5d2b7153f9",
+            "actions": [
+                {
+                    "name": "Spawn",
+                    "type": "Button",
+                    "id": "a81d4293-752a-42af-be9e-d9cc5baa7ec9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "bb9be20c-df34-4d42-a425-bfbd23c506ad",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Spawn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
