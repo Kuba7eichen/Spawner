@@ -18,6 +18,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private GameObject _objectToSpawn;
     [SerializeField] private float _spawningRadius;
     [SerializeField] private float _spawningSpeed;
+    [SerializeField] private float _minObjectSpeed, _maxObjectSpeed;
     [SerializeField] private int _maxSpawnedObjects = 10;
     private List<GameObject> _objects;
     private float _counter;
@@ -50,6 +51,7 @@ public class Spawner : MonoBehaviour
         {
             GameObject obj = Instantiate(_objectToSpawn, spawnPoint, Quaternion.identity);
             obj.GetComponent<MeshRenderer>().material.color = Random.ColorHSV();
+            SpawnedObjectBehaviour.CreateComponent(obj, _minObjectSpeed, _maxObjectSpeed);
             _objects.Add(obj);
             
         }
